@@ -20,7 +20,7 @@ const Tasks = ({ tasks, setTasks }) => {
 
     try {
       // Call backend API to add task and get saved task with _id
-      const response = await fetch("http://localhost:5000/api/tasks", {
+      const response = await fetch("https://smarttaskerbackend-production.up.railway.app/api/logintasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newTask),
@@ -51,7 +51,7 @@ const Tasks = ({ tasks, setTasks }) => {
   };
   const handleDelete = async (_id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${_id}`);
+      await axios.delete(`https://smarttaskerbackend-production.up.railway.app/api/tasks/${_id}`);
       setTasks((prev) => prev.filter((task) => task._id !== _id));
     } catch (error) {
       console.error("Failed to delete task:", error);
@@ -76,7 +76,7 @@ const Tasks = ({ tasks, setTasks }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/tasks/${editId}`,
+        `https://smarttaskerbackend-production.up.railway.app/api/login/tasks/${editId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
