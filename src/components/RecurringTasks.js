@@ -29,7 +29,7 @@ const RecurringTasks = ({ tasks, recurringTasks, setRecurringTasks }) => {
 
       // Send to backend
       const response = await axios.post(
-        "http://localhost:5000/api/tasks",
+        "https://smarttaskerbackend-production.up.railway.app/api/tasks",
         payload
       );
 
