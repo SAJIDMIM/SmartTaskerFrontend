@@ -60,32 +60,30 @@ const Login = () => {
     </svg>
   );
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-     const res = await fetch("https://smarttaskerbackend-production.up.railway.app/api/login", {
-     method: "POST",
-     headers: { "Content-Type": "application/json" },
-     body: JSON.stringify({ email, password }),
-});
+  try {
+    const res = await fetch("https://smarttaskerbackend-production.up.railway.app/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
 
-      });
+    const data = await res.json();
 
-      const data = await res.json();
-
-      if (res.ok) {
-        showCustomAlert(data.message);
-        // Delay navigation so user can see alert
-        setTimeout(() => navigate("/home"), 1500);
-      } else {
-        showCustomAlert(data.message);
-      }
-    } catch (err) {
-      console.error("Login error:", err);
-      showCustomAlert("Something went wrong. Please try again.");
+    if (res.ok) {
+      showCustomAlert(data.message);
+      setTimeout(() => navigate("/home"), 1500);
+    } else {
+      showCustomAlert(data.message);
     }
-  };
+  } catch (err) {
+    console.error("Login error:", err);
+    showCustomAlert("Something went wrong. Please try again.");
+  }
+};
+
 
   return (
     <>
