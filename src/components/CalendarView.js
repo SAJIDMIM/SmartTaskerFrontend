@@ -8,7 +8,7 @@ const CalendarView = ({ tasks }) => {
 
   // WebSocket connection for real-time updates
   useEffect(() => {
-    const websocket = new WebSocket("ws://localhost:5000");
+    const websocket = new WebSocket("wss:https://smarttaskerbackend-production.up.railway.app/api");
 
     websocket.onmessage = (event) => {
       const message = JSON.parse(event.data);
