@@ -8,7 +8,7 @@ const TaskManager = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/tasks")
+      .get("https://smarttaskerbackend-production.up.railway.app/api/tasks")
       .then((res) => setTasks(res.data))
       .catch((err) => console.error("Failed to load tasks:", err));
   }, []);
